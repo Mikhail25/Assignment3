@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Assignment3</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="default_song_name">Radio Song Name</string>
+    <string name="default_dj_name">Radio Dj name</string>
+    <string name="default_radio_description">This is a very very very long description</string>
+</resources>
