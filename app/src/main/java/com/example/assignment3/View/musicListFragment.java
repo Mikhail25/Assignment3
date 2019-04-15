@@ -8,6 +8,8 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Adapter;
+import android.widget.SearchView;
 import android.widget.Toast;
 
 import com.example.assignment3.Model.RadioPojo;
@@ -22,6 +24,7 @@ import com.example.assignment3.R;
 public class musicListFragment extends Fragment implements ViewContract{
     RecyclerView recyclerView;
     RadioPresenterContract radioPresenterContract;
+    SearchView searchView;
 
     public musicListFragment() {
         // Required empty public constructor
@@ -33,6 +36,7 @@ public class musicListFragment extends Fragment implements ViewContract{
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
 
+
         View rootView = inflater.inflate(R.layout.fragment_music_list, container, false);
         radioPresenterContract = new RadioPresenter(this);
         radioPresenterContract.initializeRetrofit();
@@ -40,6 +44,9 @@ public class musicListFragment extends Fragment implements ViewContract{
         recyclerView = rootView.findViewById(R.id.recycle_song_list);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(layoutManager);
+
+
+
 
         radioPresenterContract.getRadioSongs();
 
