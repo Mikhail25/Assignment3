@@ -9,6 +9,8 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -22,7 +24,7 @@ import com.squareup.picasso.Picasso;
 import java.util.ArrayList;
 import java.util.List;
 
-public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.CustomViewHolder> /*implements Filterable*/ {
+public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.CustomViewHolder> implements Filterable {
     private Context context;
     RadioPojo dataSet;
     private List<Channel> channelsFull;
@@ -57,7 +59,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Custom
 
 
     //todo: need to fix adapter variable to fix search filter
-/*  @Override
+  @Override
     public Filter getFilter() {
         return exampleFilter;
     }
@@ -87,7 +89,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Custom
             dataSet.channels.addAll((List)results.values);
             notifyDataSetChanged();
         }
-    };*/
+    };
 
     public class CustomViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         TextView radioSongName, radioSongDj, radioSongDescription;
@@ -137,8 +139,8 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Custom
 
 
             fragmentTransaction.setCustomAnimations
-                    (R.anim.enter_top_to_bottom,R.anim.exit_bottom_to_top,
-                            R.anim.exit_top_to_bottom,R.anim.enter_bottom_to_top)
+                    (R.anim.enter_bottom_to_top,R.anim.exit_bottom_to_top,
+                            R.anim.enter_top_to_bottom,R.anim.exit_top_to_bottom)
                     .replace(R.id.fragment_container_layout,profileFragment,null)
                     .addToBackStack(null).commit();
         }
